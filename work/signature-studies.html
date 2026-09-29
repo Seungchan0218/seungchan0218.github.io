@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#28333f">
+  <meta name="description" content="Path signatures, causal features, and simulated hedging within Quant Lab.">
+  <meta property="og:title" content="Signature Studies — Seungchan Lee">
+  <meta property="og:description" content="Path signatures, causal features, and simulated hedging within Quant Lab.">
+  <meta property="og:type" content="website">
+  <title>Signature Studies — Seungchan Lee</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../config.js" defer></script>
+  <script src="../script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="masthead">
+    <div class="header-inner">
+      <a class="site-name" href="../index.html">Seungchan Lee</a>
+      <nav aria-label="Main navigation"><a href="../index.html">Home</a><a href="../research.html" aria-current="page">Research</a><a href="../contact.html">Contact</a></nav>
+    </div>
+    <div class="page-banner"><h1>Research</h1></div>
+  </header>
+  <main id="main" class="content" tabindex="-1">
+    <article class="reading-width project-page">
+      <a class="back-link" href="../research.html"><span aria-hidden="true">←</span> Research &amp; projects</a>
+      <h2>Signature Studies</h2>
+      <p class="project-subtitle">Path geometry and numerical experiments within Quant Lab.</p>
+      <dl class="project-facts"><div><dt>Focus</dt><dd>Path signatures</dd></div><div><dt>Tools</dt><dd>Python · NumPy</dd></div><div><dt>Context</dt><dd>Part of Quant Lab</dd></div></dl>
+      <section><h3>Overview</h3><p>Two paths can share endpoints while taking different routes. Truncated path signatures provide structured features of those routes, including interactions that depend on the order of movement.</p><p>This exploration implements exact level-two signatures for piecewise-linear paths and applies them to causal rolling windows and path prefixes.</p></section>
+      <section><h3>Components</h3><ul><li>A native NumPy implementation using Chen’s identity to combine path segments.</li><li>Forecasting comparisons between ordinary features, signature features, and their combination.</li><li>Simulated hedging policies comparing state information with signature-conditioned information.</li><li>Independent accounting checks and separate evaluations within each experiment.</li></ul></section>
+      <section><h3>Implementation and comparisons</h3><p>The native signature and hedge modules work without optional PyTorch or iisignature packages. Optional adapters support upstream comparisons, while controlled experiments preserve shared conditions within an engine.</p><p>Different engines can use different normalization, objectives, and training budgets. Raw losses across those engines are not treated as directly comparable.</p></section>
+      <aside class="research-note"><h3>Scope and limitations</h3><p>Hedging experiments use simulated paths. They do not establish real-market profitability, and no live orders are placed.</p></aside>
+      <p class="related-project">Related: <a href="quant-lab.html">Korea-first Quant Lab</a></p>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner"><span>Seungchan Lee</span><a href="#main">Back to top <span aria-hidden="true">↑</span></a></div>
+  </footer>
+</body>
+</html>
