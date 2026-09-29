@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#28333f">
+  <meta name="description" content="An overview of a research prototype for portfolio allocation, transaction costs, and reproducible evaluation.">
+  <meta property="og:title" content="Korea-first Quant Lab — Seungchan Lee">
+  <meta property="og:description" content="An overview of a research prototype for portfolio allocation, transaction costs, and reproducible evaluation.">
+  <meta property="og:type" content="website">
+  <title>Korea-first Quant Lab — Seungchan Lee</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../config.js" defer></script>
+  <script src="../script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="masthead">
+    <div class="header-inner">
+      <a class="site-name" href="../index.html">Seungchan Lee</a>
+      <nav aria-label="Main navigation"><a href="../index.html">Home</a><a href="../research.html" aria-current="page">Research</a><a href="../contact.html">Contact</a></nav>
+    </div>
+    <div class="page-banner"><h1>Research</h1></div>
+  </header>
+  <main id="main" class="content" tabindex="-1">
+    <article class="reading-width project-page">
+      <a class="back-link" href="../research.html"><span aria-hidden="true">←</span> Research &amp; projects</a>
+      <h2>Korea-first Quant Lab</h2>
+      <p class="project-subtitle">Portfolio allocation, timing, and financial accounting.</p>
+      <dl class="project-facts"><div><dt>Focus</dt><dd>Portfolio allocation</dd></div><div><dt>Tools</dt><dd>Python · NumPy · CVXPY</dd></div><div><dt>Status</dt><dd>Research prototype</dd></div></dl>
+      <section><h3>Overview</h3><p>This project explores portfolio allocation with Korea as its first market. It brings together baseline strategies, signature-based forecasts, risk-aware allocation, and an explicit accounting ledger.</p><p>The central question is how modeling choices behave when observation timing, execution delays, and transaction costs are part of the experiment.</p></section>
+      <section><h3>Components</h3><ul><li>Equal-weight, fixed 60/40, and minimum-variance portfolio baselines.</li><li>Ordinary and path-signature features, evaluated under matched allocation conditions.</li><li>Explicit costs and accounting, including a separate four-ETF experiment with whole shares and distribution receivables.</li><li>Saved protocols, model parameters, source snapshots, and reproducibility records.</li></ul></section>
+      <section><h3>Evaluation principles</h3><p>Forecasts only use information available at the observation cutoff. Labels must fully mature before training, and normalization is fitted on training data. Comparisons use matched evaluation conditions.</p><p>Once a saved test result has informed a modeling choice, it becomes development data. A new claim requires a clearly separated evaluation.</p></section>
+      <aside class="research-note"><h3>Scope and limitations</h3><p>Execution is simulated. Synthetic demonstrations establish working calculations, not real-market profitability. This page presents the research process and does not report investment performance or trading recommendations.</p></aside>
+      <p class="related-project">Related: <a href="signature-studies.html">Signature Studies</a></p>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner"><span>Seungchan Lee</span><a href="#main">Back to top <span aria-hidden="true">↑</span></a></div>
+  </footer>
+</body>
+</html>
