@@ -53,12 +53,11 @@ nav a[aria-current="page"]::after { content: ""; height: 1px; background: #c4d0d
 .reading-width { width: min(100%, 840px); }
 .papers-section { max-width: 1010px; }
 .paper-list { list-style: none; padding: 0; margin: 0; }
-.paper-entry { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; }
-.paper-entry + .paper-entry { margin-top: 38px; }
-.paper-number { padding-top: 1px; }
-.paper-entry h3 { font-size: 19px; font-weight: 600; line-height: 1.65; }
-.paper-authors { margin-top: 3px; }
-.paper-details { margin-top: 7px; color: var(--muted); font-size: 16px; }
+.paper-entry { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; font-size: 16px; line-height: 1.65; }
+.paper-entry + .paper-entry { margin-top: 28px; }
+.paper-entry h3 { display: inline; font-size: inherit; font-weight: 400; line-height: inherit; }
+.paper-authors { display: inline; margin: 0; }
+.paper-details { margin-top: 5px; color: var(--muted); font-size: 15px; }
 .paper-separator { padding-inline: 4px; }
 .math-term { white-space: nowrap; }
 .math-term sup { font-size: .7em; line-height: 0; }
@@ -96,8 +95,6 @@ nav a[aria-current="page"]::after { content: ""; height: 1px; background: #c4d0d
   .profile-caption { font-size: 11px; }
   .biography h2 { margin-bottom: 25px; }
   .paper-entry { grid-template-columns: 27px minmax(0, 1fr); gap: 8px; }
-  .paper-entry h3 { font-size: 18px; }
-  .paper-details { font-size: 15px; }
   .contact-details > div { grid-template-columns: 70px 1fr; gap: 15px; }
   .footer-inner { width: calc(100% - 44px); }
 }
