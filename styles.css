@@ -100,10 +100,12 @@ nav a[aria-current="page"]::after { content: ""; height: 1px; background: #c4d0d
   .contact-details > div { grid-template-columns: 70px 1fr; gap: 15px; }
   .footer-inner { width: calc(100% - 44px); }
 }
-@media (max-width: 420px) {
+@media (max-width: 520px) {
   .header-inner { flex-wrap: wrap; gap: 0; justify-content: center; padding-block: 15px 8px; }
   .site-name { text-align: center; width: 100%; font-size: 19px; line-height: 1.6; }
-  nav { gap: 32px; margin-top: 7px; }
+  nav { gap: 24px; margin-top: 7px; }
+}
+@media (max-width: 420px) {
   .page-banner { height: 145px; padding-bottom: 16px; }
   .page-banner h1 { font-size: 46px; }
   .content { padding-top: 31px; }
