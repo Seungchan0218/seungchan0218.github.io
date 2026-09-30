@@ -11,6 +11,10 @@
   <title>CV — Seungchan Lee</title>
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css?v=20260929-cv">
+  <style>
+    .cv-preview { display: block; width: 100%; height: 75vh; min-height: 420px; margin-top: 28px; border: 1px solid var(--line); background: #f7f8f9; }
+    .cv-links { margin-top: 0; }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -23,11 +27,56 @@
   </header>
   <main id="main" class="content" tabindex="-1">
     <div class="reading-width">
-      <p>My curriculum vitae will be available here.</p>
+      <p id="cv-status" role="status">My curriculum vitae will be available here.</p>
+      <p id="cv-links" class="cv-links" hidden>
+        <a id="cv-view" href="./cv.pdf" target="_blank" rel="noopener">View CV (PDF)</a>
+        <span aria-hidden="true"> &middot; </span>
+        <a id="cv-download" href="./cv.pdf" download="Seungchan-Lee-CV.pdf">Download CV</a>
+      </p>
+      <iframe id="cv-preview" class="cv-preview" title="Curriculum vitae of Seungchan Lee" hidden></iframe>
+      <noscript><p><a href="./cv.pdf">View CV (PDF)</a>, when available. Enable JavaScript for an inline preview.</p></noscript>
     </div>
   </main>
   <footer class="site-footer">
     <div class="footer-inner"><span>Seungchan Lee</span><a href="#main">Back to top <span aria-hidden="true">↑</span></a></div>
   </footer>
+  <script>
+    (async () => {
+      "use strict";
+      const status = document.getElementById("cv-status");
+      const links = document.getElementById("cv-links");
+      const preview = document.getElementById("cv-preview");
+      status.textContent = "Loading curriculum vitae…";
+      const pdf = new URL("./cv.pdf", window.location.href);
+      // Check the published file afresh, including after its first upload.
+      pdf.searchParams.set("v", Date.now().toString());
+      const setLinks = () => {
+        document.getElementById("cv-view").href = pdf.href;
+        document.getElementById("cv-download").href = pdf.href;
+        links.hidden = false;
+      };
+      try {
+        const response = await fetch(pdf.href, {
+          method: "HEAD",
+          cache: "no-store",
+          signal: AbortSignal.timeout(10000)
+        });
+        if (response.status === 404) {
+          status.textContent = "My curriculum vitae will be available here.";
+          return;
+        }
+        if (!response.ok || !/^application\/pdf(?:;|$)/i.test(response.headers.get("content-type") || "")) {
+          throw new Error("PDF unavailable");
+        }
+        setLinks();
+        status.hidden = true;
+        preview.src = pdf.href;
+        preview.hidden = false;
+      } catch {
+        status.textContent = "The preview is currently unavailable. Please try opening the PDF directly.";
+        setLinks();
+      }
+    })();
+  </script>
 </body>
 </html>
